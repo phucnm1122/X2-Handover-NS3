@@ -86,8 +86,5 @@ PCAP trace → file lena-x2-handover-measures-*.pcap
 6. Chạy mô phỏng
 
 Trong thư mục ns-3.45/ chạy:
-
+<pre> ```bash ./ns3 run scratch/Lena-x2-handover-measures.cc ``` </pre>
 ./ns3 run scratch/Lena-x2-handover-measures.cc
-
-
-Các tham số --simTime, --speed, --enbTxPowerDbm có thể thay đổi trực tiếp khi chạy.
