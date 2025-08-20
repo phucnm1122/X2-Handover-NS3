@@ -1,0 +1,11 @@
+set terminal pngcairo size 800,600 enhanced font 'Verdana,10'
+set output 'time_vs_sinr.png'
+
+set title "SINR over Time"
+set xlabel "Time (s)"
+set ylabel "SINR (dB)"
+set grid
+
+set datafile separator "\t"
+
+plot 'DlRsrpSinrStats.txt' using 1:(10*log10($6)) skip 1 with lines title "SINR"
