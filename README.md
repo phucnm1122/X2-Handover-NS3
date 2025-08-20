@@ -11,7 +11,7 @@ Bạn có thể điều chỉnh qua command line hoặc sửa trực tiếp tron
 
 ## 1. Tham số chính trong mô phỏng
 
-| Tham số                 | Mặc định trong code | Ý nghĩa                                   |
+| Tham số                 | Giá trị trong code | Ý nghĩa                                   |
 |-------------------------|---------------------|-------------------------------------------|
 | `numberOfUes`           | 1                   | Số lượng UE (user equipment)              |
 | `numberOfEnbs`          | 3                   | Số lượng eNodeB                           |
@@ -35,13 +35,29 @@ eNB: 3 eNB đặt tại các vị trí cố định (200,200), (500,200), (800,2
 UE: bắt đầu tại (100,300) và di chuyển theo vector vận tốc (speed,0,0)
 
 👉 Nếu muốn thử RandomWalkMobility, bạn có thể bỏ comment đoạn:
+<pre>
+ueMobility.SetPositionAllocator("ns3::GridPositionAllocator",
+		                            "MinX", DoubleValue(450.0),
+		                            "MinY", DoubleValue(344.0),
+		                            "DeltaX", DoubleValue(5.0),
+		                            "DeltaY", DoubleValue(5.0),
+		                            "GridWidth", UintegerValue(1),
+		                            "LayoutType", StringValue("RowFirst"));
 
 ueMobility.SetMobilityModel("ns3::RandomWalk2dMobilityModel",
-                            "Bounds", RectangleValue(Rectangle(200, 1500, 200, 1500)),
-                            "Distance", DoubleValue(500.0),
-                            "Speed", StringValue("ns3::UniformRandomVariable[Min=10.0|Max=16.4]"),
-                            "Direction", StringValue("ns3::UniformRandomVariable[Min=0.0|Max=6.283185]"));
+		                        "Bounds", RectangleValue(Rectangle(200, 1500, 200, 1500)), // movement area
+		                        "Distance", DoubleValue(500.0),   // travel this distance before changing direction
+		                        "Speed", StringValue("ns3::UniformRandomVariable[Min=10.0|Max=16.4]"), // random speed range
+		                        "Direction", StringValue("ns3::UniformRandomVariable[Min=0.0|Max=6.283185]")); // 0–2π radians
+ueMobility.Install(ueNodes);
+</pre>
 
+và comment các dòng này lại
+<pre>
+    ueMobility.SetMobilityModel("ns3::ConstantVelocityMobilityModel");
+    ueNodes.Get(0)->GetObject<MobilityModel>()->SetPosition(Vector(100, 300, 1.5));
+    ueNodes.Get(0)->GetObject<ConstantVelocityMobilityModel>()->SetVelocity(Vector(speed, 0, 0));
+</pre>
 3. Tham số cho Handover Algorithm
 
 Có 2 loại được hỗ trợ:
