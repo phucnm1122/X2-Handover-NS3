@@ -1,4 +1,10 @@
+File gốc nằm ở đường dẫn sau
+
+<pre> /ns-3.45/src/lte/examples/lena-x2-handover-measures.cc </pre>
+
 📘 Hướng dẫn setup tham số cho file LenaX2HandoverMeasures.cc
+
+
 1. Tham số chính trong mô phỏng
 
 Bạn có thể điều chỉnh qua command line hoặc sửa trực tiếp trong code.
@@ -67,6 +73,8 @@ lteHelper->SetFadingModelAttribute("RbNum", UintegerValue(100));
 
 👉 Bạn có thể thay trace file nếu muốn mô phỏng các điều kiện khác (ví dụ Pedestrian, Vehicular).
 
+Trace file ở đường dẫn sau: /ns-3.45/src/lte/model/fading-traces
+
 5. Kết quả đầu ra
 
 Sau khi chạy mô phỏng, bạn sẽ có:
@@ -74,10 +82,16 @@ Sau khi chạy mô phỏng, bạn sẽ có:
 NetAnim visualization → file lte2.xml để mở trong NetAnim (có node UE, eNB với icon riêng).
 
 Throughput vs Time → Gnuplot xuất ra:
-
-TimeVSThroughput.plt
+<pre> gnuplot TimeVSThroughput.plt </pre>
 
 TimeVSThroughput.png
+
+SINR và RSRP → Gnuplot xuất ra:
+<pre> gnuplot plotRSRP.txt </pre>
+<pre> gnuplot plotSINR.txt </pre>
+
+time_vs_rsrp.png
+time_vs_sinr.png
 
 FlowMonitor stats → ThroughputMonitor.xml
 
@@ -86,5 +100,4 @@ PCAP trace → file lena-x2-handover-measures-*.pcap
 6. Chạy mô phỏng
 
 Trong thư mục ns-3.45/ chạy:
-<pre> ```bash ./ns3 run scratch/Lena-x2-handover-measures.cc ``` </pre>
-./ns3 run scratch/Lena-x2-handover-measures.cc
+<pre> ./ns3 run scratch/Lena-x2-handover-measures.cc </pre>
