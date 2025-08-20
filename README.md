@@ -63,33 +63,35 @@ và comment các dòng này lại
 Có 2 loại được hỗ trợ:
 
 🔹 A2A4 RSRQ (comment trong code)
+<pre>
 lteHelper->SetHandoverAlgorithmType("ns3::A2A4RsrqHandoverAlgorithm");
 lteHelper->SetHandoverAlgorithmAttribute("ServingCellThreshold", UintegerValue(30));
 lteHelper->SetHandoverAlgorithmAttribute("NeighbourCellOffset", UintegerValue(1));
-
+</pre>
 🔹 A3 RSRP (đang dùng)
+<pre>
 lteHelper->SetHandoverAlgorithmType("ns3::A3RsrpHandoverAlgorithm");
 lteHelper->SetHandoverAlgorithmAttribute("Hysteresis", DoubleValue(3.0));
 lteHelper->SetHandoverAlgorithmAttribute("TimeToTrigger", TimeValue(MilliSeconds(256)));
-
-
-Bạn có thể điều chỉnh Hysteresis (1–5 dB) và TimeToTrigger (100–512 ms) để thấy sự khác biệt trong quá trình handover.
+</pre>
 
 4. Tham số cho Fading model
 
 Đang sử dụng mô hình EVA 60 km/h:
 
+<pre>
 lteHelper->SetFadingModel("ns3::TraceFadingLossModel");
 lteHelper->SetFadingModelAttribute("TraceFilename", StringValue("src/lte/model/fading-traces/fading_trace_EVA_60kmph.fad"));
 lteHelper->SetFadingModelAttribute("TraceLength", TimeValue(Seconds(10)));
 lteHelper->SetFadingModelAttribute("SamplesNum", UintegerValue(10000));
 lteHelper->SetFadingModelAttribute("WindowSize", TimeValue(Seconds(0.5)));
 lteHelper->SetFadingModelAttribute("RbNum", UintegerValue(100));
-
+</pre>
 
 👉 Bạn có thể thay trace file nếu muốn mô phỏng các điều kiện khác (ví dụ Pedestrian, Vehicular).
 
-Trace file ở đường dẫn sau: /ns-3.45/src/lte/model/fading-traces
+Trace file ở đường dẫn sau: 
+<pre>/ns-3.45/src/lte/model/fading-traces</pre>
 
 5. Kết quả đầu ra
 
