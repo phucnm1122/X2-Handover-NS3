@@ -32,13 +32,13 @@ Bạn có thể điều chỉnh qua command line hoặc sửa trực tiếp tron
 
 
 Bearer là dữ liệu mà người dùng truyền đi
-## Cấu hình EpsBearer trong LTE/EPC (ns-3.45)
+Cấu hình EpsBearer trong LTE/EPC (ns-3.45)
 
 Trong LTE module của ns-3, **EpsBearer** dùng để xác định loại QoS (QoS Class Identifier - QCI) cho kết nối UE ↔ EPC.  
 Khác với các tham số như `Hysteresis` hay `TimeToTrigger` có thể đặt qua `Config::SetDefault`,  
 `EpsBearer` được khởi tạo trực tiếp bằng cách chọn một enum trong lớp `EpsBearer`.
 
-### Một số loại EpsBearer có sẵn
+Một số loại EpsBearer có sẵn
 
 | Tham số                        | QCI  | Loại            | Ý nghĩa                                                                 |
 |--------------------------------|------|-----------------|-------------------------------------------------------------------------|
