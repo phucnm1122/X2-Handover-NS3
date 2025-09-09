@@ -24,7 +24,7 @@ Bạn có thể điều chỉnh qua command line hoặc sửa trực tiếp tron
 | `enbTxPowerDbm`         | 46 dBm              | Công suất phát của eNB                    |
 | `UdpClient::Interval`   | 2000 ms             | Chu kỳ gửi gói UDP                        |
 | `UdpClient::MaxPackets` | 1.000.000           | Số gói UDP tối đa                         |
-| `SrsPeriodicity`        | 2                   | Chu kỳ báo cáo SRS                        |
+| `SrsPeriodicity`        | 2                   | Chu kỳ gửi SRS                        	|
 | `LteHelper::UseIdealRrc`| true                | Sử dụng Ideal RRC (đơn giản hóa)          |
 | `HandoverAlgorithm`     | A3-RSRP             | Thuật toán handover mặc định              |
 | `Hysteresis`            | 3 dB                | Ngưỡng hysteresis cho handover            |
