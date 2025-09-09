@@ -30,6 +30,22 @@ Bạn có thể điều chỉnh qua command line hoặc sửa trực tiếp tron
 | `Hysteresis`            | 3 dB                | Ngưỡng hysteresis cho handover            |
 | `TimeToTrigger`         | 256 ms              | Thời gian cần đạt để kích hoạt HO         |
 
+
+Bearer là dữ liệu mà người dùng truyền đi
+## Cấu hình EpsBearer trong LTE/EPC (ns-3.45)
+
+Trong LTE module của ns-3, **EpsBearer** dùng để xác định loại QoS (QoS Class Identifier - QCI) cho kết nối UE ↔ EPC.  
+Khác với các tham số như `Hysteresis` hay `TimeToTrigger` có thể đặt qua `Config::SetDefault`,  
+`EpsBearer` được khởi tạo trực tiếp bằng cách chọn một enum trong lớp `EpsBearer`.
+
+### Một số loại EpsBearer có sẵn
+
+| Tham số                        | QCI  | Loại            | Ý nghĩa                                                                 |
+|--------------------------------|------|-----------------|-------------------------------------------------------------------------|
+| `EpsBearer::GBR_CONV_VOICE`    | 1    | GBR             | Bearer thoại VoIP, băng thông đảm bảo, độ trễ thấp                      |
+| `EpsBearer::GBR_STREAMING_VIDEO` | 2  | GBR             | Bearer video streaming, có băng thông đảm bảo                           |
+| `EpsBearer::NGBR_VIDEO_TCP_DEFAULT` | 9 | Non-GBR        | Bearer mặc định cho Internet / video TCP, best-effort                   |
+
 2. Tham số cho Mobility
 
 eNB: 3 eNB đặt tại các vị trí cố định (200,200), (500,200), (800,200)
