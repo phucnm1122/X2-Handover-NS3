@@ -1,5 +1,7 @@
 Phiên bản sử dụng: NS-3.45
 
+OS: Ubuntu 24.04.3
+
 File gốc nằm ở đường dẫn sau
 
 <pre> /ns-3.45/src/lte/examples/lena-x2-handover-measures.cc </pre>
