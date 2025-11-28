@@ -54,7 +54,7 @@ eNB: 3 eNB đặt tại các vị trí cố định (200,200), (500,200), (800,2
 
 UE: bắt đầu tại (100,300) và di chuyển theo vector vận tốc (speed,0,0)
 
-👉 Nếu muốn thử RandomWalkMobility, bạn có thể bỏ comment đoạn:
+👉 ĐểĐể thử RandomWalkMobility, bạn có thể bỏ comment đoạn:
 <pre>
 ueMobility.SetPositionAllocator("ns3::GridPositionAllocator",
 		                            "MinX", DoubleValue(450.0),
